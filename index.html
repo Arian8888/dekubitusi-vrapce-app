@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dekubitusi – Klinika za psihijatriju Vrapče</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Klinika za psihijatriju Vrapče</p>
+        <h1>Vođenje dekubitusa</h1>
+        <p class="subtitle">
+          Evidencija pacijenata s dekubitusima uz mogućnost unosa fotografija.
+        </p>
+      </div>
+      <button class="ghost-button" id="reset-storage">Očisti evidenciju</button>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Novi slučaj</h2>
+        <form id="case-form">
+          <div class="grid">
+            <label>
+              ID slučaja
+              <input name="caseId" type="text" required />
+            </label>
+            <label>
+              Ime i prezime
+              <input name="fullName" type="text" required />
+            </label>
+            <label>
+              Datum rođenja
+              <input name="birthDate" type="date" required />
+            </label>
+            <label>
+              Spol
+              <select name="gender" required>
+                <option value="">Odaberite</option>
+                <option value="Ž">Ž</option>
+                <option value="M">M</option>
+                <option value="Drugo">Drugo</option>
+              </select>
+            </label>
+            <label>
+              Zavod
+              <input name="department" type="text" />
+            </label>
+            <label>
+              Datum prijema u ustanovu
+              <input name="admissionDate" type="date" required />
+            </label>
+            <label>
+              Glavna dijagnoza (MKB-10)
+              <input name="mainDiagnosis" type="text" />
+            </label>
+            <label>
+              Rizik pacijenta za dekubitus kod prijema
+              <input name="riskAtAdmission" type="text" />
+            </label>
+            <label>
+              Dekubitus nastao tijekom boravka
+              <select name="acquiredInHospital" required>
+                <option value="">Odaberite</option>
+                <option value="DA">DA</option>
+                <option value="NE">NE</option>
+              </select>
+            </label>
+            <label>
+              Datum dijagnoze dekubitusa (L89.0)
+              <input name="ulcerDiagnosisDate" type="date" />
+            </label>
+            <label>
+              Stupanj dekubitusa
+              <input name="ulcerStage" type="text" />
+            </label>
+            <label>
+              Lokalizacija dekubitusa
+              <input name="ulcerLocation" type="text" />
+            </label>
+            <label>
+              Datum otpusta iz ustanove
+              <input name="dischargeDate" type="date" />
+            </label>
+            <label>
+              Ishod liječenja
+              <input name="treatmentOutcome" type="text" />
+            </label>
+            <label class="wide">
+              Napomena
+              <textarea name="notes" rows="3"></textarea>
+            </label>
+            <label>
+              Dan ležanja
+              <input name="daysInBed" type="number" min="0" />
+            </label>
+            <label class="wide">
+              Fotografije dekubitusa
+              <input name="photos" type="file" accept="image/*" multiple />
+              <span class="helper">Možete dodati više fotografija odjednom.</span>
+            </label>
+          </div>
+          <div class="actions">
+            <button type="submit" class="primary">Spremi slučaj</button>
+            <button type="reset" class="secondary">Poništi unos</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Popis slučajeva</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID slučaja</th>
+                <th>Ime i prezime</th>
+                <th>Datum rođenja</th>
+                <th>Spol</th>
+                <th>Zavod</th>
+                <th>Datum prijema</th>
+                <th>Glavna dijagnoza</th>
+                <th>Rizik kod prijema</th>
+                <th>Dekubitus tijekom boravka</th>
+                <th>Datum dijagnoze</th>
+                <th>Stupanj</th>
+                <th>Lokalizacija</th>
+                <th>Datum otpusta</th>
+                <th>Ishod liječenja</th>
+                <th>Napomena</th>
+                <th>Dan ležanja</th>
+                <th>Fotografije</th>
+                <th>Akcije</th>
+              </tr>
+            </thead>
+            <tbody id="cases-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
